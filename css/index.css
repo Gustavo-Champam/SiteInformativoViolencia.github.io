@@ -1,0 +1,316 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+:root {
+  --overlayColor: rgba(0, 0, 0, 0.7);
+  --rem2: 2rem;
+  --rem1-3: 1.3rem;
+  --rem1-1: 1.1rem;
+  --rem1-05: 1.05rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+p {
+  color: gray;
+  line-height: 1.6;
+}
+
+/* =================== HEADER & HERO =================== */
+.coverDiv {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: url(../img/building-3.jpg) fixed no-repeat center/cover;
+}
+
+.coverDiv .mainHeader {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--overlayColor);
+  padding-inline: max(5%, 50px);
+  padding-top: 10px;
+}
+
+.logoSec {
+  display: flex;
+  align-items: center;
+}
+
+.logoSec > i {
+  font-size: xx-large;
+  color: red;
+}
+
+.logoSec > span {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  color: white;
+  padding-left: 5px;
+  font-size: large;
+}
+
+.hamburgerIcon {
+  display: none;
+  color: white;
+}
+
+.hamburgerIcon > i {
+  font-size: x-large;
+}
+
+.coverDiv .mainDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  background-color: var(--overlayColor);
+  text-align: center;
+}
+
+.mainSec {
+  width: 80%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: topSlide 1s ease-out;
+}
+
+@keyframes topSlide {
+  from { margin-top: -20%; opacity: 0; }
+  to { margin-top: 0%; opacity: 1; }
+}
+
+.mainSec > h1 {
+  font-size: 70px;
+}
+
+.mainSec > p {
+  width: 80%;
+  font-size: 1.5rem;
+  font-weight: lighter;
+  color: white;
+  margin-block: 10px;
+}
+
+.mainSec > a {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  border: 2px solid white;
+  padding: 10px 50px;
+  position: relative;
+  z-index: 2;
+}
+
+.mainSec > a::before,
+.mainSec > a::after {
+  content: "";
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-color: white;
+  z-index: -1;
+  transition: 0.5s;
+}
+
+.mainSec > a::before { left: 50%; }
+.mainSec > a::after { right: 50%; }
+
+.mainSec > a:hover {
+  color: black;
+}
+
+.mainSec > a:hover::before,
+.mainSec > a:hover::after {
+  width: 50%;
+}
+
+/* =================== SECTIONS & CARDS =================== */
+.headingSec {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.headingSec > h1 {
+  font-size: var(--rem2);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.highlight {
+  color: red;
+}
+
+.headingSec > p {
+  font-size: var(--rem1-1);
+}
+
+section {
+  margin-bottom: 60px;
+}
+
+.divTwo, .divThree, .divFour {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 50px;
+}
+
+.divTwo > section, .divThree > section, .divFour > section {
+  width: 85%;
+}
+
+.divTwo .firstSec,
+.divThree .firstSec,
+.divFour .firstSec {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.courseSec,
+.infoCard,
+.subSec {
+  width: 300px;
+  flex: 1 1 300px;
+  max-width: 100%;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 30px 20px;
+  text-align: center;
+  border: 0.5px solid silver;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+
+.courseSec:hover,
+.infoCard:hover,
+.subSec:hover {
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.courseSec > h3,
+.infoCard > h3,
+.subSec > h3 {
+  font-size: var(--rem1-3);
+  padding-bottom: 8px;
+  position: relative;
+}
+
+.courseSec > h3::after,
+.infoCard > h3::after,
+.subSec > h3::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 4px;
+  background-color: red;
+  bottom: 0;
+  left: 25%;
+}
+
+.courseSec > p,
+.infoCard > p,
+.subSec > p {
+  text-align: justify;
+  padding-top: 10px;
+  font-size: var(--rem1-05);
+}
+
+/* =================== FOOTER =================== */
+.divSeven {
+  width: 100%;
+  padding-block: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.divSeven .firstSec {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.divSeven .firstSec > a {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-inline: 10px;
+  color: gray;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.divSeven .firstSec > a:hover {
+  transform: rotate(360deg);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.divSeven .firstSec > p > i,
+.divSeven .firstSec > p > a {
+  color: blue;
+}
+
+/* =================== RESPONSIVO =================== */
+@media (max-width: 768px) {
+  .courseSec,
+  .infoCard,
+  .subSec {
+    width: 90% !important;
+  }
+
+  .firstSec {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mainSec > h1 {
+    font-size: 2rem;
+  }
+
+  .mainSec > p {
+    font-size: 1.2rem;
+    width: 100%;
+  }
+
+  .coverDiv .mainHeader .navItems {
+    display: none;
+  }
+
+  .coverDiv .mainHeader .hamburgerIcon {
+    display: block;
+  }
+}
+
+/* =================== ACESSIBILIDADE =================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
